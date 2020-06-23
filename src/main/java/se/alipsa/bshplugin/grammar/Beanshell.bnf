@@ -1,0 +1,22 @@
+{
+  parserClass="se.alipsa.bshplugin.parser.BeanshellParser"
+
+  extends="com.intellij.extapi.psi.ASTWrapperPsiElement"
+
+  psiClassPrefix="Beanshell"
+  psiImplClassSuffix="Impl"
+  psiPackage="se.alipsa.bshplugin.psi"
+  psiImplPackage="se.alipsa.bshplugin.psi.impl"
+
+  elementTypeHolderClass="se.alipsa.bshplugin.psi.BeanshellTypes"
+  elementTypeClass="se.alipsa.bshplugin.psi.BeanshellElementType"
+  tokenTypeClass="se.alipsa.bshplugin.psi.BeanshellTokenType"
+
+  psiImplUtilClass="se.alipsa.bshplugin.psi.impl.BeanshellPsiImplUtil"
+}
+
+beanshellFile ::= item_*
+
+private item_ ::= (property|COMMENT|CRLF)
+
+property ::= (KEY? SEPARATOR VALUE?) | KEY
