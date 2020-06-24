@@ -12,7 +12,7 @@ repositories {
 }
 
 dependencies {
-    testImplementation group: 'junit', name: 'junit', version: '4.12'
+    testImplementation group: 'org.junit.jupiter', name: 'junit-jupiter', version: '5.6.2'
 }
 
 // See https://github.com/JetBrains/gradle-intellij-plugin/
@@ -38,7 +38,7 @@ task generateLexer(type: GenerateLexer) {
     source = "src/main/se/alipsa/bshplugin/grammar/Beanshell.flex"
 
     // target directory for lexer
-    targetDir = "gen/com/perl5/lang/perl/lexer/"
+    targetDir = "gen/se/alipsa/bshplugin/lexer/"
 
     // target classname, target file will be targetDir/targetClass.java
     targetClass = "BeanshellLexer"
@@ -58,10 +58,10 @@ task generateParser(type: GenerateParser) {
     targetRoot = 'gen'
 
     // path to a parser file, relative to the targetRoot
-    pathToParser = '/com/perl5/lang/perl/parser/PerlParserGenerated.java'
+    pathToParser = '/se/alipsa/bshplugin/BeanshellParser.java'
 
     // path to a directory with generated psi files, relative to the targetRoot
-    pathToPsiRoot = '/com/perl5/lang/perl/psi'
+    pathToPsiRoot = '/se/alipsa/bshplugin/psi'
 
     // if set, plugin will remove a parser output file and psi output directory before generating new ones. Default: false
     purgeOldFiles = true
